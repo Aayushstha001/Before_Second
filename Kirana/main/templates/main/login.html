@@ -1,11 +1,73 @@
-<h1>Login</h1>
+<!-- <h1>Login</h1>
 
 {% if error %}
     <p>{{ error }}</p>
-{% endif %}
-<form method="post">
+{% endif %} -->
+<!-- <form method="post">
     {% csrf_token %}
     <input type="text" name="username" placeholder="Username">
     <input type="password" name="password" placeholder="Password">
     <button type="submit">Login</button>
-</form>
+</form> --> 
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../static/css/login_style.css">
+</head>
+<body>
+
+    <div id="navbar">
+        <div id="title">
+            <img src="../static/images/mountain.png" alt="" srcset="">
+            <h1>Hills</h1>
+        </div>
+        <!-- <div id="options">
+            <a href="login.html">
+                 <img src=""> 
+                <img src="../static/images/user.png"></img>
+            </a>
+        </div> -->
+    </div>
+
+
+    <div id="mostouterlogin">
+        <div id="leftlogin">
+            
+        </div>
+        <div id="rightlogin">
+            <div id="icon">
+                <img src="../static/images/lock.png" alt="">
+                <h1>Login</h1>
+            </div>
+            <form method="post">
+                {% csrf_token %}
+                <input type="text" placeholder="Username" name="username">
+                <input type="email" placeholder="Email" name="email">
+                <input type="password" placeholder="Password" name="password">
+                <a href="/">Forgot Password?</a>
+                <button type="submit">Login</button>
+            </form>
+
+            <div id="info">
+                <a href=".">
+                    <img src="../static/images/github.png" alt="no-img" srcset="">
+                </a>
+                <a href=".">
+                    <img src="../static/images/facebook.png" alt="no-img" srcset="">
+                </a>
+                <a href=".">
+                    <img src="../static/images/linkedin.png" alt="no-img" srcset="">
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+</html>
