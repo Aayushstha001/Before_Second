@@ -12,7 +12,7 @@ def register_user(request):
             form.save()
             return redirect('login')
     else:
-        form = UserCreationForm()
+        form = UserForm()
     return render(request, 'main/register.html', {'form': form})
 
 def login_user(request):
