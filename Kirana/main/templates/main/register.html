@@ -43,8 +43,10 @@
             </div>
 
             <form method="post">
-                {% csrf_token %}
-                {{ form.as_p}}
+                {% for field in form %}
+                    <label>{{field.label}}:</label> {{field}}<br>
+                {% endfor %}
+                <a href="{% url 'home' %}">Cancel</a>
                 <button type="submit">Register</button>
             </form>
             
