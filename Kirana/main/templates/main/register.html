@@ -43,6 +43,7 @@
             </div>
 
             <form method="post">
+                {% csrf_token %}
                 {% for field in form %}
                     <label>{{field.label}}:</label> {{field}}<br>
                 {% endfor %}
