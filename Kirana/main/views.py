@@ -1,9 +1,13 @@
 from django.contrib.auth import authenticate, login, logout
 from .forms import *
 from django.shortcuts import render, redirect
+from .models import *
 
 def home(request):
-    return render(request, 'main/home.html', {})
+    category = Category.objects.all()
+    product = Product.objects.all()
+    context = {'category': category, 'product': product}
+    return render(request, 'main/home.html', context)
 
 def register_user(request):
     if request.method == 'POST':

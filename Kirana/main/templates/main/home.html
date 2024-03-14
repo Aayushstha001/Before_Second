@@ -104,6 +104,17 @@
                     
                 </div>
             </div>
+            {% for category in category %}
+            <div class="product_category" id="category_6">
+                
+                <div id="inner_category">
+                    
+                    <h2>{{category.category_name}}</h2>
+                    <img src="{{category.category_image}}">
+                    <button>View</button>
+                    
+                </div>
+            </div>
         </div>
     </div>
 
