@@ -13,7 +13,7 @@ def register_user(request):
             return redirect('login')
     else:
         form = UserCreationForm()
-    return render(request, 'main/register.html', {'form': form})
+    return render(request, 'pages/register.html', {'form': form})
 
 def login_user(request):
     if request.method == 'POST':
@@ -24,9 +24,9 @@ def login_user(request):
             login(request, user)
             return redirect('home')
         else:
-            return render(request, 'main/login.html', {'error': 'Invalid login credentials'})
+            return render(request, 'pages/login.html', {'error': 'Invalid login credentials'})
     else:
-        return render(request, 'main/login.html')
+        return render(request, 'pages/login.html')
     
 def logout_user(request):
     logout(request)
