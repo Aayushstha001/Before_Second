@@ -28,8 +28,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=1920, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="static/css/index_style.css">
+    <title>Kirana</title>
+    <link rel="shortcut icon" type="image/x-icon">
+    <link rel="stylesheet" href="static/css/home.css">
 </head>
 <body>
     
@@ -40,23 +41,50 @@
             </a>
         </div>
         <div id="options">
+            
+
             {% if request.user.is_authenticated %}
-            <a href="{% url 'logout' %}">Logout</a>
-           <p> {{ request.user.username }}</p>
+            <div id="logout">
+                <a href="{% url 'logout' %}">
+                    <img src="static/images/icons/logout.png" alt="" srcset="">
+                </a>
+                
+            </div>
+            <div id="profile">
+                <img src="static/images/icons/profile.png" alt="" srcset="">
+                <p>
+                    {{ request.user.username }}
+                </p>
+            </div>
             {% else %}
             
             <a href="{% url 'login' %}">
-                <img src="static/images/user.png"></img>
+                <img src="static/images/icons/log.png"></img>
+                <!-- <p>login</p> -->
             </a>
             <a href="{% url 'register' %}">
-                <img src="static/images/sign.png">
+                <img src="static/images/icons/sign.png">
+                <!-- <p>register</p> -->
+            </a>
+            
+            <a href="{% url 'login' %}">
+                <img src="static/images/icons/contact.png"></img>
+                <!-- <p>login</p> -->
             </a>
             {% endif %}
             
     
         </div>
     </div>
-<!-- 
+
+    <div id="intro">
+        <h1> What are we ?</h1>
+
+        <p> We are the group of individuals dedicated to provide you quality products .</p>
+        <button>See More</button>
+
+    </div>
+
     <div id="outer_product_box">
         <h2>Products</h2>
         <div id="inner_product_box">
@@ -64,18 +92,26 @@
             <div class="product_category" id="category_1">
 
                 <div id="inner_category">
-                    <h2>Shirts</h2>
-                    <img src="static/images/shirts.jpg">
-                    <button>View</button>
+                    <a href="{% url 'home' %}">
+
+                        <img src="static/images/product/category/shirts.jpg">
+                        <!-- <button>View</button> -->
+                        <h2>Shirts</h2>
+
+                    </a>
                 </div>
             </div>
 
             <div class="product_category" id="category_2">
                 
                 <div id="inner_category">
-                    <h2>Pants</h2>
-                    <img src="static/images/pants.jpg">
-                    <button>View</button>
+                    <a href="{% url 'home' %}">
+                        
+                        <img src="static/images/product/category/pants.jpg">
+                        <!-- <button>View</button> -->
+                        <h2>Pants</h2>
+
+                    </a>
                     
                 </div>
                 
@@ -84,46 +120,54 @@
             <div class="product_category" id="category_3">
                 
                 <div id="inner_category">
-                    <h2>T-shirts</h2>
-                    <img src="static/images/tshirt.jpg">
-                    <button>View</button>
+                    <a href="{% url 'home' %}">
+                        <img src="static/images/product/category/tshirt.jpg">
+                        <!-- <button>View</button> -->
+                        <h2>T-shirts</h2>
+                    </a>
                 </div>
             </div>
 
             <div class="product_category" id="category_4">
 
                 <div id="inner_category">
-                    
-                    <h2>Shoes</h2>
-                    <img src="static/images/shoes.jpg">
-                    <button>View</button>
+                    <a href="{% url 'home' %}">
+                        <img src="static/images/product/category/shoes.jpg">
+                        <!-- <button>View</button> -->
+                        <h2>T-shirts</h2>
+                    </a>
                 </div>
             </div>
 
             <div class="product_category" id="category_5">
 
                 <div id="inner_category">
-                    
-                    <h2>Bag</h2>
-                    <img src="static/images/bag.jpg">
-                    <button>View</button>
-                    
+                    <a href="{% url 'home' %}">
+                        <img src="static/images/product/category/bag.jpg">
+                        <!-- <button>View</button> -->
+                        <h2>T-shirts</h2>
+                    </a>
                 </div>
             </div>
 
             <div class="product_category" id="category_6">
                 
                 <div id="inner_category">
-                    
-                    <h2>Cap</h2>
-                    <img src="static/images/cap.jpg">
-                    <button>View</button>
-                    
+                    <a href="{% url 'home' %}">
+                        <img src="static/images/product/category/cap.jpg">
+                        <!-- <button>View</button> -->
+                        <h2>T-shirts</h2>
+                    </a>
                 </div>
             </div>
         </div>
-    </div> -->
+    </div> 
 
+
+    <div id="footer">
+        <div id="innerfooter">
+        </div>
+    </div>
     
 
 </body>
