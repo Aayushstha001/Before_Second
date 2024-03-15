@@ -33,13 +33,11 @@ class Rating(models.Model):
     def __str__(self):
         return self.product
 
-# Create your models here.
+class Info(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    address = models.CharField(max_length=255)
+    phone_no = models.CharField(max_length=15)
 
-
-class form(models.Model):
-
-    username = models.CharField(max_length=30)
-    email = models.CharField(max_length=50)
-    password = models.CharField(max_length= 30)
-    repassword = models.CharField(max_length= 30)
+    def __str__(self):
+        return self.user.username
 

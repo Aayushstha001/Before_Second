@@ -2,6 +2,9 @@ from django.contrib.auth import authenticate, login, logout
 from .forms import *
 from django.shortcuts import render, redirect
 from .models import *
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from .forms import *
 
 def home(request):
     category = Category.objects.all()
@@ -13,11 +16,12 @@ def register_user(request):
     if request.method == 'POST':
         form = UserForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('login')
+            user = form.save()
+            login(request, user)
+            return redirect('register_info')
     else:
         form = UserForm()
-    return render(request, 'main/register.html', {'form': form})
+    return render(request, 'pages/register.html', {'form': form})
 
 
 def login_user(request):
@@ -36,3 +40,24 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     return redirect('home')
+
+@login_required(login_url='login')
+def register_info(request):
+    form = InfoForm()
+
+    if request.method == "POST":
+        form = InfoForm(request.POST, request.FILES)
+        if form.is_valid():
+            try:
+                info = form.save(commit=False)
+                info.user = request.user
+                info.save()
+                messages.success(request, 'Info registered successfully.')
+                return redirect('home')
+            except Exception as e:
+                messages.error(request, f'Error occurred during registration: {e}')
+        else:
+            messages.error(request, 'Error occurred during registration.')
+
+    context = {'form': form}
+    return render(request, 'pages/info_register.html', context)
