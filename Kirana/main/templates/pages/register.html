@@ -1,14 +1,11 @@
-<!-- <h1>Login</h1>
-
-{% if error %}
-    <p>{{ error }}</p>
-{% endif %} -->
-<!-- <form method="post">
+<!-- 
+<form method="post">
     {% csrf_token %}
-    <input type="text" name="username" placeholder="Username">
-    <input type="password" name="password" placeholder="Password">
-    <button type="submit">Login</button>
-</form> --> 
+    {{ form.as_p }}
+    <button type="submit">Register</button>
+</form> -->
+
+
 
 
 <!DOCTYPE html>
@@ -42,17 +39,18 @@
         <div id="rightlogin">
             <div id="icon">
                 <img src="../static/images/lock.png" alt="">
-                <h1>Login</h1>
+                <h1>Register</h1>
             </div>
+
             <form method="post">
                 {% csrf_token %}
-                <input type="text" placeholder="Username" name="username">
-                <input type="email" placeholder="Email" name="email">
-                <input type="password" placeholder="Password" name="password">
-                <a href="/">Forgot Password?</a>
-                <button type="submit">Login</button>
+                {% for field in form %}
+                    <label>{{field.label}}:</label> {{field}}<br>
+                {% endfor %}
+                <a href="{% url 'home' %}">Cancel</a>
+                <button type="submit">Register</button>
             </form>
-
+            
             <div id="info">
                 <a href=".">
                     <img src="../static/images/github.png" alt="no-img" srcset="">
